@@ -10,10 +10,9 @@ RUN a2enmod expires headers
 
 VOLUME /var/www/html
 
-COPY docker-entrypoint.sh /entrypoint.sh
+COPY docker-entrypoint.sh /usr/local/bin/
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["apache2-foreground"]
-#CMD ["apache2", "-DFOREGROUND"]
 
