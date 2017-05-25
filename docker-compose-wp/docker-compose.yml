@@ -1,0 +1,18 @@
+wordpress: 
+  image: namach/wordpress 
+  links: 
+    - mysql:mysql 
+  ports: 
+    - "80" 
+  volumes_from: 
+    - data-volume
+mysql: 
+  image: mysql 
+  volumes_from: 
+    - data-volume
+  environment: 
+    - MYSQL_ROOT_PASSWORD=password 
+data-volume: 
+  image: namach/data-volume
+  command: tail -f /dev/null
+
